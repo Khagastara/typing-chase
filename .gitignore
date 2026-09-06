@@ -1,0 +1,11 @@
+# Mengabaikan virtual environment
+venv/
+ENV/
+env/
+
+# Mengabaikan cache Python
+__pycache__/
+*.pyc
+
+# Mengabaikan file log/history lokal jika tidak ingin di-push
+*.log

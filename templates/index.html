@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Typing Chase - Fasilkom UNEJ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="game-container">
+        <div id="hud">
+            <div id="hati">❤️❤️❤️❤️❤️</div>
+            <div id="waktu">Waktu: 0s</div>
+            <div id="wpm">WPM: 0</div>
+        </div>
+
+        <div id="track">
+            <div id="word-row"></div>
+        </div>
+
+        <div id="setup-area">
+            <input type="text" id="nama-input" placeholder="Masukkan nama..." maxlength="20">
+            <button id="mulai-btn" tabindex="-1">Mulai</button>
+        </div>
+
+        <div id="hasil-akhir" class="hidden">
+            <h2>Permainan Selesai</h2>
+            <p id="ringkasan"></p>
+            <h3>Leaderboard</h3>
+            <div id="leaderboard-list"></div>
+            <div id="leaderboard-nav">
+                <button id="prev-page-btn">&#8592;</button>
+                <span id="page-indicator">Halaman 1</span>
+                <button id="next-page-btn">&#8594;</button>
+            </div>
+            <button id="ulangi-btn">Main Lagi</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+[
+  {
+    "nama": "tes",
+    "wpm": 32.3,
+    "waktu": 66.9,
+    "typo": 5,
+    "sisa_hati": 0,
+    "akurasi": 98.2,
+    "skor": 431.8
+  },
+  {
+    "nama": "bruh",
+    "wpm": 27.3,
+    "waktu": 81.4,
+    "typo": 4,
+    "sisa_hati": 1,
+    "akurasi": 98.6,
+    "skor": 415.8
+  },
+  {
+    "nama": " bruh",
+    "wpm": 30.2,
+    "waktu": 53.7,
+    "typo": 3,
+    "sisa_hati": 0,
+    "akurasi": 98.7,
+    "skor": 394.4
+  },
+  {
+    "nama": "Anonim",
+    "wpm": 33.1,
+    "waktu": 34.4,
+    "typo": 5,
+    "sisa_hati": 0,
+    "akurasi": 96.2,
+    "skor": 374.8
+  },
+  {
+    "nama": "Anonim",
+    "wpm": 29.7,
+    "waktu": 42.4,
+    "typo": 5,
+    "sisa_hati": 0,
+    "akurasi": 97.2,
+    "skor": 356.8
+  },
+  {
+    "nama": "m",
+    "wpm": 29.5,
+    "waktu": 34.6,
+    "typo": 4,
+    "sisa_hati": 0,
+    "akurasi": 97.1,
+    "skor": 344.2
+  },
+  {
+    "nama": "Test 1",
+    "wpm": 25.2,
+    "waktu": 54.7,
+    "typo": 5,
+    "sisa_hati": 0,
+    "akurasi": 97.3,
+    "skor": 336.4
+  },
+  {
+    "nama": "Anonim",
+    "wpm": 18.1,
+    "waktu": 36.4,
+    "typo": 5,
+    "sisa_hati": 0,
+    "akurasi": 96,
+    "skor": 228.8
+  },
+  {
+    "nama": "Anonim",
+    "wpm": 21.1,
+    "waktu": 14.2,
+    "typo": 3,
+    "sisa_hati": 0,
+    "akurasi": 94.9,
+    "skor": 224.4
+  },
+  {
+    "nama": "Anonim",
+    "wpm": 18.3,
+    "waktu": 13.1,
+    "typo": 5,
+    "sisa_hati": 0,
+    "akurasi": 74.4,
+    "skor": 184.2
+  },
+  {
+    "nama": "Anonim",
+    "wpm": 9.2,
+    "waktu": 19.6,
+    "typo": 5,
+    "sisa_hati": 0,
+    "akurasi": 75.8,
+    "skor": 106.2
+  }
+]
