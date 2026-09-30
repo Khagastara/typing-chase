@@ -3,11 +3,16 @@ import json
 import os
 from word_generator import KamusWordGenerator
 
-app = Flask(__name__)
-
 generator = KamusWordGenerator("wordlist.txt", "corpus_kalimat.txt")
 
 DATA_DIR = "/tmp" if os.environ.get("VERCEL") else "."
+
+app = Flask(
+    __name__,
+    static_folder=os.path.join(BASE_DIR, "static"),
+    template_folder=os.path.join(BASE_DIR, "templates")
+)
+
 LEADERBOARD_FILE = os.path.join(DATA_DIR, "leaderboard.json")
 GAME_HISTORY_FILE = os.path.join(DATA_DIR, "game_history.json")
 MISTAKE_LOG_FILE = os.path.join(DATA_DIR, "mistake_log.json")
