@@ -7,10 +7,11 @@ app = Flask(__name__)
 
 generator = KamusWordGenerator("wordlist.txt", "corpus_kalimat.txt")
 
-LEADERBOARD_FILE = "leaderboard.json"
-GAME_HISTORY_FILE = "game_history.json"
-MISTAKE_LOG_FILE = "mistake_log.json"
-PLAYER_HISTORY_FILE = "player_history.json"
+DATA_DIR = "/tmp" if os.environ.get("VERCEL") else "."
+LEADERBOARD_FILE = os.path.join(DATA_DIR, "leaderboard.json")
+GAME_HISTORY_FILE = os.path.join(DATA_DIR, "game_history.json")
+MISTAKE_LOG_FILE = os.path.join(DATA_DIR, "mistake_log.json")
+PLAYER_HISTORY_FILE = os.path.join(DATA_DIR, "player_history.json")
 
 
 def load_json(path, default):
