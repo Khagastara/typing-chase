@@ -1,4 +1,8 @@
 # Mengabaikan virtual environment
+leaderboard.json
+game_history.json
+mistake_log.json
+player_history.json
 venv/
 ENV/
 env/

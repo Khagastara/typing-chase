@@ -3,9 +3,7 @@ import json
 import os
 from word_generator import KamusWordGenerator
 
-generator = KamusWordGenerator("wordlist.txt", "corpus_kalimat.txt")
-
-DATA_DIR = "/tmp" if os.environ.get("VERCEL") else "."
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(
     __name__,
@@ -13,11 +11,17 @@ app = Flask(
     template_folder=os.path.join(BASE_DIR, "templates")
 )
 
+generator = KamusWordGenerator(
+    os.path.join(BASE_DIR, "wordlist.txt"),
+    os.path.join(BASE_DIR, "corpus_kalimat.txt")
+)
+
+DATA_DIR = "/tmp" if os.environ.get("VERCEL") else BASE_DIR
+
 LEADERBOARD_FILE = os.path.join(DATA_DIR, "leaderboard.json")
 GAME_HISTORY_FILE = os.path.join(DATA_DIR, "game_history.json")
 MISTAKE_LOG_FILE = os.path.join(DATA_DIR, "mistake_log.json")
 PLAYER_HISTORY_FILE = os.path.join(DATA_DIR, "player_history.json")
-
 
 def load_json(path, default):
     if os.path.exists(path):
