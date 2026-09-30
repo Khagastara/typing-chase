@@ -8,15 +8,27 @@
 <body>
     <div id="game-container">
         <div id="hud">
-            <div id="hati">❤️❤️❤️❤️❤️</div>
-            <div id="waktu">Waktu: 0s</div>
+            <div id="timer">Sisa Waktu: 60s</div>
             <div id="wpm">WPM: 0</div>
         </div>
-
         <div id="track">
             <div id="word-row"></div>
         </div>
-
+        <div id="race-container">
+            <div class="race-lane">
+                <span class="race-label">Kamu</span>
+                <div class="race-bar-bg">
+                    <div id="race-bar-player" class="race-bar-fill player"></div>
+                </div>
+            </div>
+            <div class="race-lane">
+                <span class="race-label">AI</span>
+                <div class="race-bar-bg">
+                    <div id="race-bar-ai" class="race-bar-fill ai"></div>
+                </div>
+            </div>
+            <div id="race-status">Ronde 1</div>
+        </div>
         <div id="setup-area">
             <input type="text" id="nama-input" placeholder="Masukkan nama..." maxlength="20">
             <button id="mulai-btn" tabindex="-1">Mulai</button>

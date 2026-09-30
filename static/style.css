@@ -14,8 +14,73 @@ body {
 }
 
 #game-container {
-    max-width: 700px;
-    margin: 0 auto;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+#race-container {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+}
+
+.race-lane {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.race-label {
+    width: 40px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: right;
+    color: #ccc;
+}
+
+.race-bar-bg {
+    flex: 1;
+    height: 14px;
+    background: #0f1730;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #2c3e6b;
+}
+
+.race-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 8px;
+    transition: width 0.15s linear;
+}
+
+.race-bar-fill.player {
+    background: #2ecc71;
+}
+
+.race-bar-fill.ai {
+    background: #e94560;
+}
+
+#race-status {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #ffd60a;
+    margin-top: 4px;
+}
+
+@keyframes stackPop {
+    0% { transform: scale(1.5); color: #2ecc71; }
+    100% { transform: scale(1); color: #ffd60a; }
+}
+
+.stack-naik {
+    animation: stackPop 0.25s ease;
 }
 
 h1 {
@@ -37,9 +102,19 @@ h1 {
     font-weight: bold;
 }
 
-#hati {
-    font-size: 20px;
-    letter-spacing: 2px;
+#timer {
+    color: #ffd60a;
+    font-size: 16px;
+}
+
+#timer.waktu-kritis {
+    color: #e94560;
+    animation: kedip 0.6s infinite;
+}
+
+@keyframes kedip {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
 }
 
 #waktu, #wpm {

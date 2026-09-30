@@ -1,0 +1,55 @@
+{
+  "test": {
+    "jumlah_sesi": 2,
+    "total_wpm": 61.5,
+    "rata_wpm": 30.75,
+    "kesalahan_huruf_kumulatif": {
+      "a": 5,
+      "n": 3,
+      "o": 3,
+      "g": 2,
+      "e": 4,
+      "i": 2,
+      "t": 1,
+      "r": 1,
+      "s": 2,
+      "j": 1,
+      "y": 1,
+      "l": 1
+    }
+  },
+  "testing 30": {
+    "jumlah_sesi": 1,
+    "total_wpm": 26.8,
+    "rata_wpm": 26.8,
+    "kesalahan_huruf_kumulatif": {
+      "s": 2,
+      "r": 1,
+      "e": 1,
+      "g": 1
+    }
+  },
+  "tesing": {
+    "jumlah_sesi": 1,
+    "total_wpm": 23.4,
+    "rata_wpm": 23.4,
+    "kesalahan_huruf_kumulatif": {
+      "o": 1,
+      "z": 1,
+      "i": 1,
+      "t": 1,
+      "p": 1
+    }
+  },
+  "aqil": {
+    "jumlah_sesi": 1,
+    "total_wpm": 48,
+    "rata_wpm": 48.0,
+    "kesalahan_huruf_kumulatif": {
+      "b": 1,
+      "g": 1,
+      "m": 1,
+      "a": 1
+    }
+  }
+}

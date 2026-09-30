@@ -5,7 +5,7 @@ from word_generator import KamusWordGenerator
 
 app = Flask(__name__)
 
-generator = KamusWordGenerator("wordlist.txt")
+generator = KamusWordGenerator("wordlist.txt", "corpus_kalimat.txt")
 
 LEADERBOARD_FILE = "leaderboard.json"
 GAME_HISTORY_FILE = "game_history.json"
@@ -24,6 +24,20 @@ def save_json(path, data):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2)
 
+@app.route("/get_opponent")
+def get_opponent():
+    nama = request.args.get("nama", "").strip().lower()
+    riwayat_pemain = load_json(PLAYER_HISTORY_FILE, {})
+
+    if nama and nama in riwayat_pemain and riwayat_pemain[nama].get("rata_wpm", 0) > 0:
+        wpm_dasar = riwayat_pemain[nama]["rata_wpm"]
+    else:
+        riwayat_game = load_json(GAME_HISTORY_FILE, [])
+        wpm_dasar = (sum(d["wpm"] for d in riwayat_game) / len(riwayat_game)) if riwayat_game else 25
+
+    ai_wpm = max(round(wpm_dasar * 1.05, 1), 15)
+
+    return jsonify({"ai_wpm": ai_wpm, "wpm_dasar": round(wpm_dasar, 1)})
 
 def tentukan_default(wpm):
     """Aturan cadangan kalau data historis belum cukup untuk melatih model."""
@@ -72,20 +86,14 @@ def prediksi_waktu_per_kata(wpm):
     hasil = max(0.8, min(hasil, 4.0))
     return round(hasil, 2), "model"
 
-
 @app.route("/")
 def index():
     return render_template("index.html")
 
-
 @app.route("/get_words")
 def get_words():
     jumlah = int(request.args.get("jumlah", 20))
-    panjang_min = int(request.args.get("panjang_min", 0))
-    huruf_param = request.args.get("huruf", "")
-    huruf_prioritas = list(huruf_param) if huruf_param else None
-
-    kata = generator.generate_words_adaptif(jumlah, panjang_min, huruf_prioritas)
+    kata = generator.generate_words_puisi(jumlah)
     return jsonify({"words": kata})
 
 
@@ -197,20 +205,21 @@ def submit_score():
     wpm = data.get("wpm", 0)
     waktu = data.get("waktu", 0)
     typo = data.get("typo", 0)
-    sisa_hati = data.get("sisa_hati", 0)
     akurasi = data.get("akurasi", 0)
+    kata_benar = data.get("kata_benar", 0)
+    menang_ai = data.get("menang_ai", False)
     kesalahan_huruf = data.get("kesalahan_huruf", {})
     latensi_huruf = data.get("latensi_huruf", {})
     waktu_per_kata_dipakai = data.get("waktu_per_kata_dipakai", 2.5)
 
-    skor = round((wpm * 10) + (waktu * 2) - (typo * 5), 1)
+    skor = round((wpm * 10) + (kata_benar * 2) - (typo * 5) + (50 if menang_ai else 0), 1)
     if skor < 0:
         skor = 0
 
     leaderboard = load_json(LEADERBOARD_FILE, [])
     entri_baru = {
         "nama": nama, "wpm": wpm, "waktu": waktu, "typo": typo,
-        "sisa_hati": sisa_hati, "akurasi": akurasi, "skor": skor
+        "akurasi": akurasi, "menang_ai": menang_ai, "skor": skor
     }
     leaderboard.append(entri_baru)
     leaderboard.sort(key=lambda x: x["skor"], reverse=True)
